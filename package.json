@@ -1,0 +1,28 @@
+{
+  "name": "public-institutions-ad-web",
+  "version": "1.0.0",
+  "description": "Public-Institutions-AD-Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KimYC1223/Public-Institutions-AD-Web.git"
+  },
+  "keywords": [
+    "rest_api"
+  ],
+  "author": "kimyc1223",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KimYC1223/Public-Institutions-AD-Web/issues"
+  },
+  "homepage": "https://github.com/KimYC1223/Public-Institutions-AD-Web#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
