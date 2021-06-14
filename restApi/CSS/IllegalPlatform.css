@@ -1,0 +1,351 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+a:link {color:white;}
+a:visited {color:white;}
+a:hover {color:white;}
+a:active {color:white;}
+
+.headerImg {
+  background-image: url('../IMG/bg2.jpg');
+  background-size: cover;
+  background-position: center 75%;
+  width: 100%;
+  height: 200px;
+}
+
+.navi {
+  color:white;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #0f0f0f;
+}
+
+.naviInner{
+  padding-left: 20px;
+  width: 95%;
+  max-width: 1000px;
+  height: 50px;
+  position: relative;
+  transform: translateX(-50%);
+  left:50%;
+  line-height: 50px;
+}
+
+.headerImgInner{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  text-align: center;
+  line-height: 200px;
+  color: white;
+  font-weight: 600;
+  font-size:36px;
+}
+
+.mainDiv {
+  background-color: white;
+  width: 85vw;
+  max-width: 1000px;
+  margin-top: 30px;
+  display: inline-block;
+  top:270px;
+  padding:15px;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  border-radius: 10px;
+  margin-bottom: 60px;
+  text-align: left;
+  height: 400px;
+}
+
+.highLight {
+  width: 300px;
+  background-color: rgb(224, 224, 224);
+  position: fixed;
+  left:20px;
+  bottom: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border:5px solid #212121;
+}
+
+.highLight input {
+  width: 140px;
+  border: none;
+  outline: none;
+  padding:5px;
+}
+
+.PrintButton, .PrintButtonBG {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(0, 73, 62);
+  position: fixed;
+  right:20px;
+  bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.PrintButtonBG{border:5px solid #212121;}
+
+.PrintButton {
+  right:25px;
+  bottom: 40px;
+  background-color: rgb(0, 148, 126);
+  color:white;
+  transition: 0.2s;
+  cursor:pointer;
+  text-align: center;
+  line-height: 40px;
+  font-size: 40px;
+}
+
+.PrintButton:hover {
+  bottom:30px;
+}
+
+.MainTitle{
+  width: 100%;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.selctItem {
+  width: 100%;
+  line-height: 50px;
+  background-color: rgb(231, 231, 231);
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.targetSelect{
+  line-height: 50px;
+  height:30px;
+  margin-bottom:10px;
+  outline: none;
+}
+
+.targetSelect option {
+  outline: none;
+}
+
+.tableTitle{
+  font-weight: bold;
+  line-height: 40px;
+  padding: 0px 30px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.Newspaper_tableTitle{
+  background-color: rgb(255, 85, 85);
+  color:rgb(56, 0, 18);
+}
+
+.Internet_tableTitle{
+  background-color: rgb(107, 165, 219);
+  color:rgb(6, 49, 89);
+}
+
+.Broadcast_tableTitle{
+  background-color: rgb(127, 191, 87);
+  color:rgb(21, 47, 4);
+}
+
+.Total_tableTitle{
+  background-color: rgb(255, 245, 161);
+  color:rgb(38, 38, 38);
+}
+
+.DataTable{
+  margin-top:10px;
+  border: solid 1px rgb(209, 209, 209);
+  width:100%;
+  text-align: center;
+}
+
+.Newspaper .tr_Head, .Newspaper .td_total{ background-color: #ffb3b3; }
+.Internet .tr_Head, .Internet .td_total{ background-color: #b3daff; }
+.Broadcast .tr_Head, .Broadcast .td_total{ background-color: #d0ffb3; }
+
+.td_index { width:50px;}
+.td_media { width:120px;}
+.td_years { width:80px;}
+.td_timestamp { width:150px;}
+.td_cost { width:70px;}
+.td_num { width:50px;}
+.td_noData {height: 50px;}
+.notice {color:rgb(166, 166, 166); margin-top:10px; margin-bottom: 40px;}
+.hr { height: 10px;}
+
+.tablePages {
+  width:100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.pageButton{
+  width:30px;
+  height: 30px;
+  display: inline-block;
+  background-color: rgb(152, 152, 152);
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor:pointer;
+}
+
+.chart {
+  margin-bottom: 10px;
+  margin-top:10px;
+  height:300px;
+}
+
+.totalTable {
+  width: 95%;
+  height: 90px;
+  border: 1px solid rgb(199, 199, 199);
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 40px;
+  position: relative;
+  transform: translateX(-50%);
+  left:50%;
+}
+
+.totalHead{
+  background-color: rgb(255, 254, 223);
+}
+
+.mediaTable {
+  width: 100%;
+  height: 90px;
+  border: 1px solid rgb(199, 199, 199);
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 10px;
+  position: relative;
+  transform: translateX(-50%);
+  left:50%;
+  margin-top:10px;
+}
+
+.mediaTable_tr {
+  background-color: rgb(249, 249, 249);
+}
+
+.mediaHeader{
+  background-color: #ffb3b3;
+}
+
+.mediaHeader2{
+  background-color: #fff1f1;
+}
+
+.tableMove {
+  margin-top: -40px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.tableButton {
+  display: inline-block;
+  width:30px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #8E8E8E;
+  line-height: 30px;
+  cursor: pointer;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.tableButtonIndex {
+  font-weight: bold;
+  text-decoration: underline;
+  color:white;
+}
+
+.mainDivParents{
+  width: 100%;
+  text-align: center;
+}
+
+.footer{
+  width: 100%;
+  height: 120px;
+  background-color: rgb(73, 73, 73);
+}
+
+.footerInner {
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 30px;
+  position: relative;
+  transform: translate(-50%,-50%);
+  top:50%;
+  left:50%;
+}
+
+.footerInner2 {
+  text-align: center;
+  width: 100%;
+  height: 16px;
+  line-height: 16px;
+  font-size: 16px;
+  position: relative;
+  transform: translate(-50%,-50%);
+  top:30%;
+  left:50%;
+  color: #858585;
+}
+
+.mainDiveInner{
+  width: 99%;
+  position: relative;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top:50%;
+  text-align: center;
+}
+
+.blockImg {
+  width: 250px;
+}
+
+.warningHead{
+  width: 85%;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 15px;
+  color:#570600;
+  background-color: rgb(255, 196, 0);
+  margin-bottom: 30px;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 24px;
+}
+
+.highlight{
+  color: #ff3c00;
+  font-weight: bold;
+}

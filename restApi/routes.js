@@ -9,20 +9,21 @@ module.exports = function (app) {
       res.render(__dirname+'/HTML/index.html')
     })
 
-    /*
-    app.get('/check', (req,res) => {
-      let pw = req.query.pw
-      fs.readFile(__dirname+'/data.txt','utf8',(err,data) => {
-        if(data == pw) { res.write(`1`)}
-        else res.write(`0`)
+    app.get('/dataPage', (req,res) => {
+      res.render(__dirname+'/HTML/DataQuery.html')
+    })
+
+    app.get('/IllegalPlatform', (req,res) => {
+      res.render(__dirname+'/HTML/IllegalPlatform.html')
+    })
+
+    app.get('/read_logs', (req,res) => { mysqlScript.read_logs(req,res) })
+    app.get('/read_group_info', (req,res) => { 
+      fs.readFile(__dirname+'/group_utf.json','utf8',(err,data) => {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        if(err) { res.write(`null`)}
+        else res.write(data)
         res.end()
       })
     })
-    */
-
-    app.get('/dataPage', (req,res) => {
-      res.render(__dirname+'/HTML/userTable.html')
-    })
-
-    app.get('/read_logs', (req,res) => { mysqlScript.read_users(req,res) })
   }

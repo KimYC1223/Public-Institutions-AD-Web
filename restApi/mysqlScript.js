@@ -1,22 +1,27 @@
 var mysql      = require('mysql')
 let queryString = require('querystring')
+const fs = require('fs')
+
+const DataBasePassWord = fs.readFileSync('./dbpw.txt')
+const dbpw = DataBasePassWord.toString();
+
+console.log(`dbpw : ${dbpw}`);
+
+var mysql      = require('mysql')
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'xxxx',
+  password : dbpw,
   port     : 3306,
-  database : 'LOG_DATA'
+  database : 'LOG_DATA' 
 });
 
 let dateParse = (timestamp) => {
   let year = timestamp.getFullYear(); // 년도
   let month = timestamp.getMonth() + 1;  // 월
   let date = timestamp.getDate();  // 날짜
-  let hours = timestamp.getHours(); // 시
-  let minutes = timestamp.getMinutes();  // 분
-  let seconds = timestamp.getSeconds();  // 초
 
-  return `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
+  return `${year}-${month}-${date}`
 }
 
 
@@ -61,10 +66,10 @@ module.exports = (function() {
             str += `\t"mediaName" : "${rows[i].mediaName}",\n`
             str += `\t"hostName" : "${rows[i].hostName}",\n`
             str += `\t"years" : ${rows[i].years},\n`
-            str += `\t"timestamp" : "${rows[i].timestamp}",\n`
+            str += `\t"timestamp" : "${dateParse(rows[i].timestamp)}",\n`
             str += `\t"subject" : "${rows[i].subject}",\n`
             str += `\t"cost" : ${rows[i].cost},\n`
-            str += `\t"num" : ${rows[i].num}\n`
+            str += `\t"num" : ${rows[i].num}\n}`
             if( i != (rows.length-1))
               str += ", "
           }
@@ -75,4 +80,4 @@ module.exports = (function() {
       });
       return;
     }
-}});
+}})();

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script data-require="angularjs@1.5.7" data-semver="1.5.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Nanum+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <link rel="stylesheet" href="../CSS/billboard.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/DataQuery.css" />
+  <title>공공기관 광고 현황 조회</title>
+</head>
+<body bgcolor="#212121" ng-app="myApp" ng-controller="MyController">
+  <script src="../JS/billboard.js"></script>
+
+  <div class="headerImg"><div class="headerImgInner">공공기관 광고 현황 조회</div></div>
+  <div class="navi">
+    <div class="naviInner" >
+      <a href="/">공공기관 광고 현황 조회</a> <span ng-show="parentsName != empty">&nbsp;&nbsp;>&nbsp;&nbsp; 
+      <a ng-click="parentClick(parentsName)" class="clickable">{{parentsName}}</a> &nbsp;&nbsp;>&nbsp;&nbsp;
+      <a href="#">{{TargetName}}</a></span> </div>
+    </div>
+  <div class="mainDivParents">
+  <div class="mainDiv">
+    <div class="selctItem">조회 대상 : {{TargetName}}
+    </div>
+
+<div class="tableTitle Total_tableTitle" id="Total_tableTitle"><i class="fas fa-chart-pie"></i> 년도별 집행 내역 (2014~2021.03, 단위: 백만원, 건 수)</div>
+    <div class="chart" id="chart">
+
+    </div>
+
+    <table class="totalTable">
+      <tr class="totalHead">
+        <td></td><td>2014</td><td>2015</td><td>2016</td><td>2017</td><td>2018</td><td>2019</td><td>2020</td><td>2021</td><td>총 계</td>
+      </tr>
+      <tr>
+        <td>광고료 (백만원)</td>
+        <td>{{costs_other[0]}}</td><td>{{costs_other[1]}}</td><td>{{costs_other[2]}}</td><td>{{costs_other[3]}}</td>
+        <td>{{costs_other[4]}}</td><td>{{costs_other[5]}}</td><td>{{costs_other[6]}}</td><td>{{costs_other[7]}}</td>
+        <td>{{sum_cost}}</td>
+      </tr>
+      <tr>
+        <td>건수 (회)</td>
+        <td>{{nums[0]}}</td><td>{{nums[1]}}</td><td>{{nums[2]}}</td><td>{{nums[3]}}</td>
+        <td>{{nums[4]}}</td><td>{{nums[5]}}</td><td>{{nums[6]}}</td><td>{{nums[7]}}</td>
+        <td>{{nums[0]+nums[1]+nums[2]+nums[3]+nums[4]+nums[5]+nums[6]+nums[7]}}</td>
+      </tr>
+    </table>
+
+    <div class="hr"></div>
+
+    <div class="tableTitle Newspaper_tableTitle" id="Newspaper_tableTitle"><i class="fas fa-file"></i> 신문 매체/년도별 광고료, 건수 통계 (2014~2021.03)</div>
+    <table class="mediaTable">
+      <tr class="mediaHeader">
+        <td rowspan="2"></td><td colspan="2">조선일보</td><td colspan="2">중앙일보</td><td colspan="2">동아일보</td>
+        <td colspan="2">한겨레</td><td colspan="2">경향신문</td><td colspan="2">매일경제</td><td colspan="2">한국경제</td><td colspan="2">기타매체</td>
+      </tr>
+      <tr class="mediaHeader">
+          <td>광고료</td><td>건수</td><td>광고료</td><td>건수</td><td>광고료</td><td>건수</td>
+          <td>광고료</td><td>건수</td><td>광고료</td><td>건수</td><td>광고료</td><td>건수</td>
+          <td>광고료</td><td>건수</td><td>광고료</td><td>건수</td>
+      </tr>
+      <tr  class="mediaTable_tr" ng-show="targetNewsList.length == 0">
+        <td>년도별 데이터</td><td colspan="16" class="td_noData">데이터 없음</td>
+      </tr>
+      <tr  class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2014</td>
+          <td>{{media_cost_1[0]}}</td><td>{{media_num_1[0]}}</td><td>{{media_cost_2[0]}}</td><td>{{media_num_2[0]}}</td><td>{{media_cost_3[0]}}</td><td>{{media_num_3[0]}}</td>
+          <td>{{media_cost_4[0]}}</td><td>{{media_num_4[0]}}</td><td>{{media_cost_5[0]}}</td><td>{{media_num_5[0]}}</td><td>{{media_cost_6[0]}}</td><td>{{media_num_6[0]}}</td>
+          <td>{{media_cost_7[0]}}</td><td>{{media_num_7[0]}}</td><td>{{media_cost_8[0]}}</td><td>{{media_num_8[0]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2015</td>
+          <td>{{media_cost_1[1]}}</td><td>{{media_num_1[1]}}</td><td>{{media_cost_2[1]}}</td><td>{{media_num_2[1]}}</td><td>{{media_cost_3[1]}}</td><td>{{media_num_3[1]}}</td>
+          <td>{{media_cost_4[1]}}</td><td>{{media_num_4[1]}}</td><td>{{media_cost_5[1]}}</td><td>{{media_num_5[1]}}</td><td>{{media_cost_6[1]}}</td><td>{{media_num_6[1]}}</td>
+          <td>{{media_cost_7[1]}}</td><td>{{media_num_7[1]}}</td><td>{{media_cost_8[1]}}</td><td>{{media_num_8[1]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2016</td>
+          <td>{{media_cost_1[2]}}</td><td>{{media_num_1[2]}}</td><td>{{media_cost_2[2]}}</td><td>{{media_num_2[2]}}</td><td>{{media_cost_3[2]}}</td><td>{{media_num_3[2]}}</td>
+          <td>{{media_cost_4[2]}}</td><td>{{media_num_4[2]}}</td><td>{{media_cost_5[2]}}</td><td>{{media_num_5[2]}}</td><td>{{media_cost_6[2]}}</td><td>{{media_num_6[2]}}</td>
+          <td>{{media_cost_7[2]}}</td><td>{{media_num_7[2]}}</td><td>{{media_cost_8[2]}}</td><td>{{media_num_8[2]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2017</td>
+          <td>{{media_cost_1[3]}}</td><td>{{media_num_1[3]}}</td><td>{{media_cost_2[3]}}</td><td>{{media_num_2[3]}}</td><td>{{media_cost_3[3]}}</td><td>{{media_num_3[3]}}</td>
+          <td>{{media_cost_4[3]}}</td><td>{{media_num_4[3]}}</td><td>{{media_cost_5[3]}}</td><td>{{media_num_5[3]}}</td><td>{{media_cost_6[3]}}</td><td>{{media_num_6[3]}}</td>
+          <td>{{media_cost_7[3]}}</td><td>{{media_num_7[3]}}</td><td>{{media_cost_8[3]}}</td><td>{{media_num_8[3]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2018</td>
+          <td>{{media_cost_1[4]}}</td><td>{{media_num_1[4]}}</td><td>{{media_cost_2[4]}}</td><td>{{media_num_2[4]}}</td><td>{{media_cost_3[4]}}</td><td>{{media_num_3[4]}}</td>
+          <td>{{media_cost_4[4]}}</td><td>{{media_num_4[4]}}</td><td>{{media_cost_5[4]}}</td><td>{{media_num_5[4]}}</td><td>{{media_cost_6[4]}}</td><td>{{media_num_6[4]}}</td>
+          <td>{{media_cost_7[4]}}</td><td>{{media_num_7[4]}}</td><td>{{media_cost_8[4]}}</td><td>{{media_num_8[4]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2019</td>
+          <td>{{media_cost_1[5]}}</td><td>{{media_num_1[5]}}</td><td>{{media_cost_2[5]}}</td><td>{{media_num_2[5]}}</td><td>{{media_cost_3[5]}}</td><td>{{media_num_3[5]}}</td>
+          <td>{{media_cost_4[5]}}</td><td>{{media_num_4[5]}}</td><td>{{media_cost_5[5]}}</td><td>{{media_num_5[5]}}</td><td>{{media_cost_6[5]}}</td><td>{{media_num_6[5]}}</td>
+          <td>{{media_cost_7[5]}}</td><td>{{media_num_7[5]}}</td><td>{{media_cost_8[5]}}</td><td>{{media_num_8[5]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2020</td>
+          <td>{{media_cost_1[6]}}</td><td>{{media_num_1[6]}}</td><td>{{media_cost_2[6]}}</td><td>{{media_num_2[6]}}</td><td>{{media_cost_3[6]}}</td><td>{{media_num_3[6]}}</td>
+          <td>{{media_cost_4[6]}}</td><td>{{media_num_4[6]}}</td><td>{{media_cost_5[6]}}</td><td>{{media_num_5[6]}}</td><td>{{media_cost_6[6]}}</td><td>{{media_num_6[6]}}</td>
+          <td>{{media_cost_7[6]}}</td><td>{{media_num_7[6]}}</td><td>{{media_cost_8[6]}}</td><td>{{media_num_8[6]}}</td>
+      </tr>
+      <tr class="mediaTable_tr" ng-show="targetNewsList.length > 0">
+        <td>2021</td>
+          <td>{{media_cost_1[7]}}</td><td>{{media_num_1[7]}}</td><td>{{media_cost_2[7]}}</td><td>{{media_num_2[7]}}</td><td>{{media_cost_3[7]}}</td><td>{{media_num_3[7]}}</td>
+          <td>{{media_cost_4[7]}}</td><td>{{media_num_4[7]}}</td><td>{{media_cost_5[7]}}</td><td>{{media_num_5[7]}}</td><td>{{media_cost_6[7]}}</td><td>{{media_num_6[7]}}</td>
+          <td>{{media_cost_7[7]}}</td><td>{{media_num_7[7]}}</td><td>{{media_cost_8[7]}}</td><td>{{media_num_8[7]}}</td>
+      </tr>
+      <tr class="mediaHeader" ng-show="targetNewsList.length > 0">
+        <td rowspan="2">총 계</td>
+          <td>{{media_cost_total[0]}}</td><td>{{media_num_total[0]}}</td><td>{{media_cost_total[1]}}</td><td>{{media_num_total[1]}}</td>
+          <td>{{media_cost_total[2]}}</td><td>{{media_num_total[2]}}</td><td>{{media_cost_total[3]}}</td><td>{{media_num_total[3]}}</td>
+          <td>{{media_cost_total[4]}}</td><td>{{media_num_total[4]}}</td><td>{{media_cost_total[5]}}</td><td>{{media_num_total[5]}}</td>
+          <td>{{media_cost_total[6]}}</td><td>{{media_num_total[6]}}</td><td>{{media_cost_total[7]}}</td><td>{{media_num_total[7]}}</td>
+      </tr>
+      <tr class="mediaHeader2" ng-show="targetNewsList.length > 0">
+          <td colspan="2">{{media_cost_percent[0]}}</td><td colspan="2">{{media_cost_percent[1]}}</td>
+          <td colspan="2">{{media_cost_percent[2]}}</td><td colspan="2">{{media_cost_percent[3]}}</td>
+          <td colspan="2">{{media_cost_percent[4]}}</td><td colspan="2">{{media_cost_percent[5]}}</td>
+          <td colspan="2">{{media_cost_percent[6]}}</td><td colspan="2">{{media_cost_percent[7]}}</td>
+      </tr>
+    </table>
+
+    <div class="notice">광고료 단위 : 백만원 (부가세 포함)</div>
+
+    <div class="tableTitle Newspaper_tableTitle" id="Newspaper_tableTitle"><i class="fas fa-file"></i> 신문매체 세부 집행 내역 (2014~2021.03)</div>
+    <table class="Newspaper DataTable">
+      <tr class="Newspaper tr_Head">
+        <td class="Newspaper td_index">번호</td>
+        <td class="Newspaper td_media">매체</td>
+        <td class="Newspaper td_years">년도</td>
+        <td class="Newspaper td_timestamp">광고일자</td>
+        <td class="Newspaper td_subject">광고내용</td>
+        <td class="Newspaper td_cost">광고료</td>
+        <td class="Newspaper td_num">건수</td>
+      </tr>
+      <tr ng-show="targetNewsListShow.length == 0">
+        <td class="td_noData" colspan="7" >데이터 없음</td>
+      </tr>
+      <tr ng-repeat="data in targetNewsListShow" ng-show="targetNewsListShow.length > 0">
+        <td class="Newspaper td_index">{{$index+1}}</td>
+        <td class="Newspaper td_media" ng-hide="data.mediaName == highLightText">{{data.mediaName}}</td>
+        <td class="Newspaper td_media" ng-show="data.mediaName == highLightText"><font color="red"><b>{{data.mediaName}}</b></font></td>
+        <td class="Newspaper td_years">{{data.years}}</td>
+        <td class="Newspaper td_timestamp">{{data.timestamp}}</td>
+        <td class="Newspaper td_subject2">{{data.subject}}</td>
+        <td class="Newspaper td_cost">{{data.cost}}</td>
+        <td class="Newspaper td_num">{{data.num}}</td>
+      </tr>
+      <tr>
+        <td class="Newspaper td_total" colspan="5">2014 ~ 2021 집행내역 총계</td>
+        <td class="Newspaper td_cost"><span ng-show="targetNewsListShow.length == 0">-</span><span ng-show="targetNewsListShow.length > 0">{{news_costs_total}}</span></td>
+        <td class="Newspaper td_num"><span ng-show="targetNewsListShow.length == 0">-</span><span ng-show="targetNewsListShow.length > 0">{{news_num_total}}</span></td>
+      </tr>
+    </table>
+
+    <div class="notice">광고료 단위 : 백만원 (부가세 포함)</div>
+
+    <div class="tableMove" id="news_table">
+      <div class="tableButton" ng-show="news_page_total > 10" ng-click="newsTableLeftButton()"><i class="fas fa-chevron-left"></i></div>
+      <div class="tableButton" ng-repeat="news in NewsTableButtons"   ng-click="newsTableIndexButton(news)">
+        <span class="tableButtonIndex" ng-show="news == news_page">{{news+1}}</span>
+        <span ng-hide="news == news_page">{{news+1}}</span>
+      </div>
+      <div class="tableButton" ng-show="news_page_total > 10"  ng-click="newsTableRightButton()"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="tableTitle Internet_tableTitle" id="Internet_tableTitle"><i class="fab fa-internet-explorer"></i> 인터넷매체 세부 집행 내역 (2014~2021.03)</div>
+    <table class="Internet DataTable">
+      <tr class="Internet tr_Head">
+        <td class="Internet td_index">번호</td>
+        <td class="Internet td_media">매체</td>
+        <td class="Internet td_years">년도</td>
+        <td class="Internet td_timestamp">광고일자</td>
+        <td class="Internet td_subject">광고내용</td>
+        <td class="Internet td_cost">광고료</td>
+        <td class="Internet td_num">건수</td>
+      </tr>
+      <tr  ng-show="targetInternetListShow.length == 0">
+        <td class="td_noData" colspan="7">데이터 없음</td>
+      </tr>
+      <tr ng-repeat="data in targetInternetListShow" ng-show="targetInternetListShow.length > 0">
+        <td class="Internet td_index">{{$index+1}}</td>
+        <td class="Internet td_media" ng-hide="data.mediaName == highLightText">{{data.mediaName}}</td>
+        <td class="Internet td_media" ng-show="data.mediaName == highLightText"><font color="red">{{data.mediaName}}</font></td>
+        <td class="Internet td_years">{{data.years}}</td>
+        <td class="Internet td_timestamp">{{data.timestamp}}</td>
+        <td class="Internet td_subject2">{{data.subject}}</td>
+        <td class="Internet td_cost">{{data.cost}}</td>
+        <td class="Internet td_num">{{data.num}}</td>
+      </tr>
+      <tr>
+        <td class="Internet td_total" colspan="5">2014 ~ 2021 집행내역 총계</td>
+        <td class="Internet td_cost"><span ng-show="targetInternetListShow.length == 0">-</span><span ng-show="targetInternetListShow.length > 0">{{internet_costs_total}}</span></td>
+        <td class="Internet td_num"><span ng-show="targetInternetListShow.length == 0">-</span><span ng-show="targetInternetListShow.length > 0">{{internet_num_total}}</span></td>
+      </tr>
+    </table>
+
+    <div class="notice">광고료 단위 : 백만원 (부가세 포함)</div>
+
+    <div class="tableMove" id="Internet_table">
+      <div class="tableButton" ng-show="internet_page_total > 10"  ng-click="internetTableLeftButton()" ><i class="fas fa-chevron-left"></i></div>
+      <div class="tableButton" ng-repeat="internet in InternetTableButtons"  ng-click="internetTableIndexButton(internet)">
+        <span class="tableButtonIndex" ng-show="internet == internet_page">{{internet+1}}</span>
+        <span ng-hide="internet == internet_page">{{internet+1}}</span>
+      </div>
+      <div class="tableButton" ng-show="internet_page_total > 10"  ng-click="internetTableRightButton()"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="tableTitle Broadcast_tableTitle" id="Broadcast_tableTitle"><i class="fas fa-broadcast-tower"></i> 방송매체 세부 집행 내역 (2014~2021.03)</div>
+    <table class="Broadcast DataTable">
+      <tr class="Broadcast tr_Head">
+        <td class="Broadcast td_index">번호</td>
+        <td class="Broadcast td_media">매체</td>
+        <td class="Broadcast td_years">년도</td>
+        <td class="Broadcast td_timestamp">광고일자</td>
+        <td class="Broadcast td_subject">광고내용</td>
+        <td class="Broadcast td_cost">광고료</td>
+        <td class="Broadcast td_num">건수</td>
+      </tr>
+      <tr ng-show="targetBroadcastListShow.length == 0">
+        <td class="td_noData" colspan="7" >데이터 없음</td>
+      </tr>
+      <tr ng-repeat="data in targetBroadcastListShow" ng-show="targetBroadcastListShow.length > 0">
+        <td class="Broadcast td_index">{{$index+1}}</td>
+        <td class="Broadcast td_media" ng-hide="data.mediaName == highLightText">{{data.mediaName}}</td>
+        <td class="Broadcast td_media" ng-show="data.mediaName == highLightText"><font color="red">{{data.mediaName}}</font></td>
+        <td class="Broadcast td_years">{{data.years}}</td>
+        <td class="Broadcast td_timestamp">{{data.timestamp}}</td>
+        <td class="Broadcast td_subject2">{{data.subject}}</td>
+        <td class="Broadcast td_cost">{{data.cost}}</td>
+        <td class="Broadcast td_num">{{data.num}}</td>
+      </tr>
+      <tr>
+        <td class="Broadcast td_total" colspan="5">2014 ~ 2021 집행내역 총계</td>
+        <td class="Broadcast td_cost"><span ng-show="targetBroadcastListShow.length == 0">-</span><span ng-show="targetBroadcastListShow.length > 0">{{broadcast_costs_total}}</td>
+        <td class="Broadcast td_num"><span ng-show="targetBroadcastListShow.length == 0">-</span><span ng-show="targetBroadcastListShow.length > 0">{{broadcast_num_total}}</td>
+      </tr>
+    </table>
+
+    <div class="notice">광고료 단위 : 백만원 (부가세 포함)</div>
+
+    <div class="tableMove" id="broadcast_table">
+      <div class="tableButton" ng-show="news_page_total > 10"  ng-click="broadTableLeftButton()"><i class="fas fa-chevron-left"></i></div>
+      <div class="tableButton" ng-repeat="broad in BroadcastTableButtons" ng-click="broadTableIndexButton(broad)">
+        <span class="tableButtonIndex" ng-show="broad == broad_page">{{broad+1}}</span>
+        <span ng-hide="broad == broad_page">{{broad+1}}</span>
+      </div>
+      <div class="tableButton" ng-show="news_page_total > 10"  ng-click="broadTableRightButton()"><i class="fas fa-chevron-right"></i></div>
+    </div>
+  </div>
+
+  <div class="highLight">매체명 하이라이트 : <input type="text" class="highLightField" ng-model="highLightText"></input></div>
+  <!-- <div class="PrintButtonBG"></div>
+  <div class="PrintButton" id="PrintButton"><i class="fas fa-print"></i></div> -->
+</div>
+  <div class="footer">
+    <div class="footerInner2">Last update : 2021.06.15</div>
+    <div class="footerInner"><a href="https://blog.naver.com/kek9580"><i class="fas fa-home"></i></a> &nbsp;&nbsp;&nbsp;
+                             <a href="https://twitter.com/kyummy63"><i class="fab fa-twitter"></i></a> &nbsp;&nbsp;&nbsp;
+                             <a href="https://www.youtube.com/channel/UCLwDpdPbcsq0R2398JO_oWQ"><i class="fab fa-youtube"></i></a> &nbsp;&nbsp;&nbsp;
+                             <a href="https://www.facebook.com/profile.php?id=100000329595989"><i class="fab fa-facebook-square"></i></a> &nbsp;&nbsp;&nbsp;
+                             <a href="https://github.com/KimYC1223/Public-Institutions-AD-Web"><i class="fab fa-github-square"></i></a> &nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+  <script src="../JS/DataQuery.js"></script>
+  <script src="../JS/MyAngular.js"></script>
+  <script src="../JS/PlatformCheck.js"></script>
+</body>
+</html>

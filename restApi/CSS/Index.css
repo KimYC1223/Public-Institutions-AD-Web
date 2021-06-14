@@ -1,0 +1,170 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+  
+  a:link {color:white;}
+  a:visited {color:white;}
+  a:hover {color:white;}
+  a:active {color:white;}
+
+.headerImg{
+    width: 100%;
+    height: 40vh;
+    background-image: url('../IMG/bg1.jpg');
+    background-position: center 70%;
+    background-size: cover;   
+}
+
+.headerImg titleText{
+    display: block;
+    width: 550px;
+    color:white;
+    background-color: rgba(0,0,0,0.6);
+    font-size: 45px;
+    padding:20px;
+    position: relative;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.mainDivParents {
+    width: 100%;
+    height: calc(60vh - 120px);
+}
+
+.mainDiv{
+    background-color: #d8d8d8;
+    padding: 20px;
+    padding-top:40px;
+    padding-bottom: 40px;
+    width: 80vh;
+    max-width: 1040px;
+    height: calc(60vh - 240px);
+    max-height: 200px;
+    position: relative;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    border-radius: 10px;
+}
+
+.mainHeader{
+    float: left;
+    display: inline-block;
+    width: 18%;
+    height: calc(60vh - 240px);
+    max-height: 200px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.mainHeaderInner {
+    position: relative;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    width: 95%;
+    text-align: center;
+}
+
+.mainHeaderInner i {
+    margin-bottom: 20px;
+    font-size: 80px;
+}
+
+.parentsDiv{
+    float: left;
+    display: inline-block;
+    width: 15%;
+    overflow-y: scroll;
+    height: calc(60vh - 240px);
+    max-height: 200px;
+    margin-right: 5px;
+    background-color: #ececec;
+}
+
+.childNoDiv {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transform: translate(-50%,-50%);
+    left:50%;
+    top:50%;
+    color:rgb(102, 102, 102);
+}
+
+.childsDiv {
+    float: left;
+    display: inline-block;
+    width: 65%;
+    overflow-y: scroll;
+    height: calc(60vh - 240px);
+    max-height: 200px;
+    background-color: #ececec;
+}
+
+.parentDivSub {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    background-color: rgb(34, 34, 34);
+    color:white;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.parentDivSub:last-child {
+    margin-bottom: 0px;
+}
+
+.childDivSub {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    color: rgb(34, 34, 34);
+    background-color:#c9c9c9;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.footer{
+    width: 100%;
+    height: 120px;
+    background-color: rgb(73, 73, 73);
+  }
+  
+  .footerInner {
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+    position: relative;
+    transform: translate(-50%,-50%);
+    top:50%;
+    left:50%;
+  }
+  
+  .footerInner2 {
+    text-align: center;
+    width: 100%;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    position: relative;
+    transform: translate(-50%,-50%);
+    top:30%;
+    left:50%;
+    color: #858585;
+  }
