@@ -104,7 +104,7 @@ SELECT user,plugin,host FROM mysql.user;
 If  root authentication method is 'auth_socket', try this :
 
 ```
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'FLUID TRACK 데이터베이스 비밀번호';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '데이터베이스 비밀번호';
 FLUSH PRIVILEGES;
 exit;
 ```
