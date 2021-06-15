@@ -10,12 +10,22 @@ a:visited {color:white;}
 a:hover {color:white;}
 a:active {color:white;}
 
-.headerImg {
-  background-image: url('../IMG/bg2.jpg');
-  background-size: cover;
-  background-position: center 75%;
+.headerImg{
   width: 100%;
-  height: 200px;
+  height: 350px;
+  background-color: #003e98;
+}
+
+.headImgReal{
+  width: 1080px;
+  height: 350px;
+  transform: translate(-50%,-50%);
+  left:50%;
+  top:50%;
+  position: relative;
+  background-image: url('../IMG/bg3.jpg');
+  background-size: 100%;
+  background-position: center center;
 }
 
 .navi {
@@ -23,7 +33,7 @@ a:active {color:white;}
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background-color: #0f0f0f;
+  background-color: #003e98;
 }
 
 .naviInner{
@@ -69,7 +79,7 @@ a:active {color:white;}
   bottom: 30px;
   padding: 10px;
   border-radius: 10px;
-  border:5px solid #212121;
+  border:5px solid #003e98;
   z-index: 10;
 }
 
@@ -188,6 +198,7 @@ a:active {color:white;}
 .td_noData {height: 50px;}
 .notice {color:rgb(166, 166, 166); margin-top:10px; margin-bottom: 40px;}
 .hr { height: 10px;}
+.hideSpan {color:#fff1f1;}
 
 .tablePages {
   width:100%;
@@ -289,8 +300,14 @@ a:active {color:white;}
 .footer{
   width: 100%;
   height: 120px;
-  background-color: rgb(73, 73, 73);
+  background-color: #fbc700;
 }
+
+.footerInner a:link {color:#003e98;}
+.footerInner a:visited {color:#003e98;}
+.footerInner a:hover {color:#003e98;}
+.footerInner a:active {color:#003e98;}
+
 
 .footerInner {
   text-align: center;
@@ -314,7 +331,7 @@ a:active {color:white;}
   transform: translate(-50%,-50%);
   top:30%;
   left:50%;
-  color: #858585;
+  color: #003e98;
 }
 
 .td_subject2{

@@ -13,10 +13,12 @@
   <link rel="stylesheet" type="text/css" href="../CSS/DataQuery.css" />
   <title>공공기관 광고 현황 조회</title>
 </head>
-<body bgcolor="#212121" ng-app="myApp" ng-controller="MyController">
+<body bgcolor="#003e98" ng-app="myApp" ng-controller="MyController">
   <script src="../JS/billboard.js"></script>
 
-  <div class="headerImg"><div class="headerImgInner">공공기관 광고 현황 조회</div></div>
+  <div class="headerImg">
+    <div class="headImgReal"></div>
+  </div>
   <div class="navi">
     <div class="naviInner" >
       <a href="/">공공기관 광고 현황 조회</a> <span ng-show="parentsName != empty">&nbsp;&nbsp;>&nbsp;&nbsp; 
@@ -126,7 +128,7 @@
           <td colspan="2">{{media_cost_percent[0]}}</td><td colspan="2">{{media_cost_percent[1]}}</td>
           <td colspan="2">{{media_cost_percent[2]}}</td><td colspan="2">{{media_cost_percent[3]}}</td>
           <td colspan="2">{{media_cost_percent[4]}}</td><td colspan="2">{{media_cost_percent[5]}}</td>
-          <td colspan="2">{{media_cost_percent[6]}}</td><td colspan="2">{{media_cost_percent[7]}}</td>
+          <td colspan="2">{{media_cost_percent[6]}}</td><td colspan="2"><span class="hideSpan">{{media_cost_percent[7]}}</span></td>
       </tr>
     </table>
 
@@ -273,7 +275,7 @@
                              <a href="https://twitter.com/kyummy63"><i class="fab fa-twitter"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://www.youtube.com/channel/UCLwDpdPbcsq0R2398JO_oWQ"><i class="fab fa-youtube"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://www.facebook.com/profile.php?id=100000329595989"><i class="fab fa-facebook-square"></i></a> &nbsp;&nbsp;&nbsp;
-                             <a href="https://github.com/KimYC1223/Public-Institutions-AD-Web"><i class="fab fa-github-square"></i></a> &nbsp;&nbsp;&nbsp;
+                             <a href="mailto:kek9580@naver.com"><i class="far fa-envelope"></i></a> &nbsp;&nbsp;&nbsp;
     </div>
   </div>
   <script src="../JS/DataQuery.js"></script>

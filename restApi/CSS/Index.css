@@ -12,30 +12,25 @@
 
 .headerImg{
     width: 100%;
-    height: 40vh;
-    background-image: url('../IMG/bg1.jpg');
-    background-position: center 70%;
-    background-size: cover;   
+    height: 350px;
+    background-color: #003e98;
 }
 
-.headerImg titleText{
-    display: block;
-    width: 550px;
-    color:white;
-    background-color: rgba(0,0,0,0.6);
-    font-size: 45px;
-    padding:20px;
-    position: relative;
+.headImgReal{
+    width: 1080px;
+    height: 350px;
     transform: translate(-50%,-50%);
     left:50%;
     top:50%;
-    text-align: center;
-    font-weight: bold;
+    position: relative;
+    background-image: url('../IMG/bg3.jpg');
+    background-size: 100%;
+    background-position: center center;
 }
 
 .mainDivParents {
     width: 100%;
-    height: calc(60vh - 120px);
+    height: calc(100vh - 470px);
 }
 
 .mainDiv{
@@ -43,8 +38,9 @@
     padding: 20px;
     padding-top:40px;
     padding-bottom: 40px;
-    width: 80vh;
+    width: 80vw;
     max-width: 1040px;
+    min-width: 800px;
     height: calc(60vh - 240px);
     max-height: 200px;
     position: relative;
@@ -57,7 +53,7 @@
 .mainHeader{
     float: left;
     display: inline-block;
-    width: 18%;
+    width: 10%;
     height: calc(60vh - 240px);
     max-height: 200px;
     margin-right: 5px;
@@ -71,6 +67,7 @@
     top:50%;
     width: 95%;
     text-align: center;
+    color:#003e98;
 }
 
 .mainHeaderInner i {
@@ -81,7 +78,7 @@
 .parentsDiv{
     float: left;
     display: inline-block;
-    width: 15%;
+    width: 30%;
     overflow-y: scroll;
     height: calc(60vh - 240px);
     max-height: 200px;
@@ -102,7 +99,7 @@
 .childsDiv {
     float: left;
     display: inline-block;
-    width: 65%;
+    width: 58%;
     overflow-y: scroll;
     height: calc(60vh - 240px);
     max-height: 200px;
@@ -113,7 +110,7 @@
     width: 100%;
     height: 32px;
     line-height: 32px;
-    background-color: rgb(34, 34, 34);
+    background-color: #003e98;
     color:white;
     border-radius: 5px;
     margin-bottom: 3px;
@@ -141,8 +138,14 @@
 .footer{
     width: 100%;
     height: 120px;
-    background-color: rgb(73, 73, 73);
+    background-color: #fbc700;
   }
+
+  .footerInner a:link {color:#003e98;}
+  .footerInner a:visited {color:#003e98;}
+  .footerInner a:hover {color:#003e98;}
+  .footerInner a:active {color:#003e98;}
+
   
   .footerInner {
     text-align: center;
@@ -166,5 +169,5 @@
     transform: translate(-50%,-50%);
     top:30%;
     left:50%;
-    color: #858585;
+    color: #003e98;
   }
