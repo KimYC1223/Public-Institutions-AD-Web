@@ -8,7 +8,7 @@
 
 Public Institutions AD status dashboard based on NodeJS web server
 
-Access Link : 
+Access Link : http://www.kek9580.com/
 
 <a href="mailto:kau_esc@naver.com"><img src="https://img.shields.io/badge/Contact-kau_esc@naver.com-blue?logo=gmail&logoColor=white"></a>
 <a href="https://github.com/FluidTrack/FluidTrackApplication/blob/master/LICENSE"><img src="https://img.shields.io/github/license/FluidTrack/FluidTrackApplication"></a>
@@ -104,7 +104,7 @@ SELECT user,plugin,host FROM mysql.user;
 If  root authentication method is 'auth_socket', try this :
 
 ```
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'FLUID TRACK 데이터베이스 비밀번호';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '데이터베이스 비밀번호';
 FLUSH PRIVILEGES;
 exit;
 ```
