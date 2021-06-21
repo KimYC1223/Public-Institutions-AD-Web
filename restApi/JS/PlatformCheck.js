@@ -8,7 +8,7 @@ function checkPlatform() {
       if (agent.indexOf("chrome") != -1) {
         return true;
       } else {return false;}
-    } else {return false;}
+    } else {return true;}
 }
   
 if(!checkPlatform()) {
