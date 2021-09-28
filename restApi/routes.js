@@ -13,6 +13,10 @@ module.exports = function (app) {
       res.render(__dirname+'/HTML/DataQuery.html')
     })
 
+    app.get('/searchResult', (req,res) => {
+      res.render(__dirname+'/HTML/SearchResult.html')
+    })
+
     app.get('/IllegalPlatform', (req,res) => {
       res.render(__dirname+'/HTML/IllegalPlatform.html')
     })

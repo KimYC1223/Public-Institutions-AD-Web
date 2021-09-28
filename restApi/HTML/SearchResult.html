@@ -8,7 +8,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Nanum+Gothic&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-        <link rel="stylesheet" type="text/css" href="../CSS/Index.css" />
+        <link rel="stylesheet" type="text/css" href="../CSS/SearchResult.css" />
         <title>공공기관 광고 현황 조회</title>
       </head>
 <body bgcolor="#003e98" ng-app="myApp" ng-controller="MyController">
@@ -19,26 +19,16 @@
 
   <div class="mainDivParents">
     <div class="mainDiv">
-      <div class="mainHeader">
-        <div class="mainHeaderInner">
-          <i class="fas fa-search"></i>
-          <br>부처 검색
-        </div>
+      <div class="searchDiv">
+        <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" placeholder="찾고자 하는 부처를 입력하세요">
+        <div class="searchButton" id="seachButton">검색</div>
       </div>
-      <div class="parentsDiv">
-        <div ng-repeat="pa in parents" ng-click="selectParents(pa)" class="parentDivSub">{{pa}}</div>
-      </div>
-
+    
       <div class="childsDiv">
         <div ng-repeat="ch in childs" ng-click="selectChild(ch)" class="childDivSub">{{ch}}</div>
         <div ng-show="childs.length==0" class="childNoDiv">상위 기관을 선택하세요</div>
       </div>
     </div>
-  </div>
-  
-  <div class="searchDiv">
-    <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" placeholder="찾고자 하는 부처를 입력하세요" ng-model="searchName">
-    <div class="searchButton" id="seachButton" ng-click="searchButtonClick()">검색</div>
   </div>
 
   <div class="footer">

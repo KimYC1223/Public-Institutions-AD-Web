@@ -164,18 +164,18 @@ app.controller('MyController',['$scope',($scope)=> {
     $scope.page_news = 0;
     $scope.page_internet = 0;
     $scope.page_broadcast = 0;
-
+    console.log($scope.dataList[0])
     $scope.dataList.sort((a,b) => {
-      let a_n = Number.parseInt(a.split('-')[0])
-      let b_n = Number.parseInt(b.split('-')[0])
+      let a_n = Number.parseInt(a.timestamp.split('-')[0])
+      let b_n = Number.parseInt(b.timestamp.split('-')[0])
       if(a_n != b_n) return b_n - a_n
       else {
-        a_n = Number.parseInt(a.split('-')[1])
-        b_n = Number.parseInt(b.split('-')[1])
+        a_n = Number.parseInt(a.timestamp.split('-')[1])
+        b_n = Number.parseInt(b.timestamp.split('-')[1])
         if(a_n != b_n) return b_n - a_n
         else {
-          a_n = Number.parseInt(a.split('-')[2])
-          b_n = Number.parseInt(b.split('-')[2])
+          a_n = Number.parseInt(a.timestamp.split('-')[2])
+          b_n = Number.parseInt(b.timestamp.split('-')[2])
           if(a_n != b_n) return b_n - a_n
           else return 0;
         }

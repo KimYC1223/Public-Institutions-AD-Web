@@ -12,6 +12,8 @@ app.controller('MyController',['$scope',($scope)=> {
   $scope.groupData
   $scope.parents = []
   $scope.childs = []
+  $scope.searchName
+
   readGroupDataFile(`/read_group_info`, (str) => {
     $scope.groupData = JSON.parse(str)
     $scope.$apply()
@@ -40,5 +42,9 @@ app.controller('MyController',['$scope',($scope)=> {
 
   $scope.selectChild = (c) => {
     location.href=`/dataPage?name=${c}`
+  }
+
+  $scope.searchButtonClick = () =>{
+    location.href = `/searchResult?value=${$scope.searchName}`
   }
 }])

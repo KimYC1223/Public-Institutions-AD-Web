@@ -106,22 +106,6 @@
     background-color: #ececec;
 }
 
-.parentDivSub {
-    width: 100%;
-    height: 32px;
-    line-height: 32px;
-    background-color: #003e98;
-    color:white;
-    border-radius: 5px;
-    margin-bottom: 3px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.parentDivSub:last-child {
-    margin-bottom: 0px;
-}
-
 .childDivSub {
     width: 100%;
     height: 32px;
@@ -179,11 +163,11 @@
       width: 520px;
       height: 40px;
       background-color:#c9c9c9;
-      position: absolute;
-      bottom:150px;
+      position: relative;
       padding: 0 40px;
       line-height: 40px;
       border-radius: 20px;
+      margin-top: -20px;
   }
 
   .searchDiv i {
