@@ -561,6 +561,7 @@ app.controller('MyController',['$scope',($scope)=> {
 
   $scope.clear = () => {
     $scope.filterString = []
+    $scope.filterValue = ''
     $scope.SelectTarget();
   }
 }])

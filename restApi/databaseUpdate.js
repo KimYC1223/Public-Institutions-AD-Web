@@ -29,7 +29,7 @@ connection.connect();
 for(let i = 0; i < data.length; i++) {
 
     let queryString = 'INSERT INTO logs (type,mediaName,hostName,years,timestamp,subject,cost,num)'
-              + `VALUES ("${data[i].type}","${data[i].mediaName}","${data[i].hostName}",`
+              + `VALUES ("${data[i].type}","${data[i].mediaName}","${data[i].hostname}",`
               + `${data[i].years},"${data[i].timestamp}","${data[i].subject}",${data[i].cost},${data[i].num});`
 
     connection.query(queryString, function(error,rows, fields) {
