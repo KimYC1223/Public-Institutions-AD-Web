@@ -165,6 +165,23 @@ app.controller('MyController',['$scope',($scope)=> {
     $scope.page_internet = 0;
     $scope.page_broadcast = 0;
 
+    $scope.dataList.sort((a,b) => {
+      let a_n = Number.parseInt(a.split('-')[0])
+      let b_n = Number.parseInt(b.split('-')[0])
+      if(a_n != b_n) return b_n - a_n
+      else {
+        a_n = Number.parseInt(a.split('-')[1])
+        b_n = Number.parseInt(b.split('-')[1])
+        if(a_n != b_n) return b_n - a_n
+        else {
+          a_n = Number.parseInt(a.split('-')[2])
+          b_n = Number.parseInt(b.split('-')[2])
+          if(a_n != b_n) return b_n - a_n
+          else return 0;
+        }
+      }
+    })
+
     for(var i = 0 ; i < $scope.dataList.length; i++) {
 
       if($scope.dataList[i].hostName == getParameter("name")) {
@@ -256,7 +273,7 @@ app.controller('MyController',['$scope',($scope)=> {
     $scope.news_num_end = ($scope.news_page_total <= 9) ? $scope.news_page_total : 10
     $scope.internet_num_end = ($scope.internet_page_total <= 9) ? $scope.internet_page_total : 10
     $scope.broadcast_num_end = ($scope.broad_page_total <= 9) ? $scope.broad_page_total :10
-    
+
     $scope.NewsTableButtons = []
     $scope.InternetTableButtons = []
     $scope.BroadcastTableButtons = []

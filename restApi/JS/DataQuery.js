@@ -71,3 +71,8 @@ function readTextFile(file, callback) {
     }
   });
 }
+
+let headImg = document.getElementById('headImg')
+headImg.addEventListener('click' () => {
+  location.href = '/';
+})

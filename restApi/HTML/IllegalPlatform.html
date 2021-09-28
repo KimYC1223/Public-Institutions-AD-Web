@@ -17,8 +17,14 @@
   <script src="../JS/billboard.js"></script>
 
   <div class="headerImg">
-    <div class="headImgReal"></div>
+    <div class="headImgReal" id="headImg"></div>
   </div>
+  <script language="javascript">
+    let headImg = document.getElementById('headImg')
+    headImg.addEventListener('click' () => {
+      location.href = '/';
+    })
+  </script>
   <div class="navi"><div class="naviInner"><a href="/">공공기관 광고 현황 조회</a> &nbsp;&nbsp;>&nbsp;&nbsp; <a href="#">잘못된 접근</a></div> </div>
   <div class="mainDivParents">
   <div class="mainDiv">
