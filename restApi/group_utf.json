@@ -1,21 +1,21 @@
 [  {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "법무부"
   },
   {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "대검찰청"
   },
   {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "법제처"
   },
   {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "감사원"
   },
   {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "고위공직자범죄수사처"
   },
   {
@@ -23,11 +23,11 @@
     "child": "헌법재판소"
   },
   {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "대법원"
   },
   {
-    "parent": "법사위 외",
+    "parent": "법무부 외",
     "child": "군사법원"
   },
   {
