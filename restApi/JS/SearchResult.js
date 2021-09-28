@@ -24,7 +24,7 @@ app.controller('MyController',['$scope','$sce',($scope,$sce)=> {
       $scope.childs = []
       if($scope.searchName !== "") {
         for(var i = 0 ; i < $scope.groupData.length; i++) {
-            var index = $scope.groupData[i].child.indexOf($scope.searchName)
+            var index = $scope.groupData[i].child.indexOf($scope.searchName.replace(/ /gi,''))
             if(index !== -1) {
               var str = $scope.groupData[i].child.substring(0,index) + `<hh>${$scope.searchName}</hh>` + $scope.groupData[i].child.substring(index+$scope.searchName.length);
               var sceVar = $sce.trustAsHtml(str)
