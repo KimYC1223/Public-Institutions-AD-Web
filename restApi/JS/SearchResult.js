@@ -26,7 +26,7 @@ app.controller('MyController',['$scope','$sce',($scope,$sce)=> {
         for(var i = 0 ; i < $scope.groupData.length; i++) {
             var index = $scope.groupData[i].child.indexOf($scope.searchName.replace(/ /gi,''))
             if(index !== -1) {
-              var str = $scope.groupData[i].child.substring(0,index) + `<hh>${$scope.searchName.replace(/ /gi,'')}</hh>` + $scope.groupData[i].child.substring(index+$scope.searchName.length);
+              var str = $scope.groupData[i].child.substring(0,index) + `<hh>${$scope.searchName.replace(/ /gi,'')}</hh>` + $scope.groupData[i].child.substring(index+$scope.searchName.replace(/ /gi,'').length);
               var sceVar = $sce.trustAsHtml(str)
               $scope.childs.push({ parent : $scope.groupData[i].parent, child : sceVar, link :`/dataPage?name=${$scope.groupData[i].child}` })
             }
