@@ -37,12 +37,14 @@
   </div>
   
   <div class="searchDiv">
-    <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" placeholder="찾고자 하는 부처를 입력하세요" ng-model="searchName">
-    <div class="searchButton" id="seachButton" ng-click="searchButtonClick()">검색</div>
+    <form action="/SearchResult" accept-charset="utf-8" method="GET">
+      <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" name="value" placeholder="찾고자 하는 부처를 입력하세요" ng-model="searchName">
+      <input class="searchButton" id="seachButton" type="submit" value = "검색">
+    </form>
   </div>
 
   <div class="footer">
-    <div class="footerInner2">Last update : 2021.06.15</div>
+    <div class="footerInner2">Last update : 2021.09.30</div>
     <div class="footerInner"><a href="https://blog.naver.com/kek9580"><i class="fas fa-home"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://twitter.com/kyummy63"><i class="fab fa-twitter"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://www.youtube.com/channel/UCLwDpdPbcsq0R2398JO_oWQ"><i class="fab fa-youtube"></i></a> &nbsp;&nbsp;&nbsp;

@@ -134,6 +134,13 @@
 
     <div class="notice">광고료 단위 : 백만원 (부가세 포함)</div>
 
+    <div class="filterDiv"><i class="fas fa-filter" id="bigI"></i><span>매체 필터링</span>
+      <input type="text" ng-model="filterValue" 
+      placeholder="원하는 매체 명을 콤마(,)로 구분해 입력해주세요">
+      <div class="FB2" ng-click="clear()"><i class="fas fa-undo"></i></div>
+      <div class="FB" ng-click="filtering()"><i class="fas fa-filter"></i></div>
+    </div>
+
     <div class="tableTitle Newspaper_tableTitle" id="Newspaper_tableTitle"><i class="fas fa-file"></i> 신문매체 세부 집행 내역 (2014~2021.03)</div>
     <table class="Newspaper DataTable">
       <tr class="Newspaper tr_Head">
@@ -270,7 +277,7 @@
   <div class="PrintButton" id="PrintButton"><i class="fas fa-print"></i></div> -->
 </div>
   <div class="footer">
-    <div class="footerInner2">Last update : 2021.06.15</div>
+    <div class="footerInner2">Last update : 2021.09.30</div>
     <div class="footerInner"><a href="https://blog.naver.com/kek9580"><i class="fas fa-home"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://twitter.com/kyummy63"><i class="fab fa-twitter"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://www.youtube.com/channel/UCLwDpdPbcsq0R2398JO_oWQ"><i class="fab fa-youtube"></i></a> &nbsp;&nbsp;&nbsp;

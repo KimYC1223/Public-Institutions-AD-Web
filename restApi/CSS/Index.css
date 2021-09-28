@@ -219,4 +219,7 @@
       background-color: #003e98;
       color:white;
       border-radius: 10px;
+      border:none;
+      outline: none;
+      cursor:pointer;
   }

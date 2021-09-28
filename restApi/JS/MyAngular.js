@@ -38,6 +38,7 @@ app.controller('MyController',['$scope',($scope)=> {
   $scope.costs = [0,0,0,0,0,0,0,0];
   $scope.costs_other = [0,0,0,0,0,0,0,0];
   $scope.nums = [0,0,0,0,0,0,0,0];
+  $scope.filterString = []
 
   $scope.news_page = 0;
   $scope.news_page_total = 0;
@@ -255,41 +256,6 @@ app.controller('MyController',['$scope',($scope)=> {
       }
     }
 
-    $scope.targetNewsListShow = []
-    $scope.targetInternetListShow = []
-    $scope.targetBroadcastListShow = []
-
-    $scope.broad_page_total /= 20
-    $scope.news_page_total /= 20
-    $scope.internet_page_total /= 20
-
-    $scope.broad_page_total = Math.ceil($scope.broad_page_total)
-    $scope.news_page_total = Math.ceil($scope.news_page_total)
-    $scope.internet_page_total = Math.ceil($scope.internet_page_total)
-
-    $scope.news_num_start = 0
-    $scope.internet_num_start = 0
-    $scope.broadcast_num_start = 0
-    $scope.news_num_end = ($scope.news_page_total <= 9) ? $scope.news_page_total : 10
-    $scope.internet_num_end = ($scope.internet_page_total <= 9) ? $scope.internet_page_total : 10
-    $scope.broadcast_num_end = ($scope.broad_page_total <= 9) ? $scope.broad_page_total :10
-
-    $scope.NewsTableButtons = []
-    $scope.InternetTableButtons = []
-    $scope.BroadcastTableButtons = []
-
-    for(var i = $scope.news_num_start; i < $scope.news_num_end; i++) {
-      $scope.NewsTableButtons.push(i)
-    }
-
-    for(var i = $scope.internet_num_start; i < $scope.internet_num_end; i++) {
-      $scope.InternetTableButtons.push(i)
-    }
-
-    for(var i = $scope.broadcast_num_start; i < $scope.broadcast_num_end; i++) {
-      $scope.BroadcastTableButtons.push(i)
-    }
-
     for(var i = 0 ; i < 8; i ++) {
       $scope.news_costs[i] = $scope.news_costs[i].toFixed(1)
       $scope.internet_costs[i] = $scope.internet_costs[i].toFixed(1)
@@ -330,6 +296,98 @@ app.controller('MyController',['$scope',($scope)=> {
     $scope.internet_costs_total = $scope.internet_costs_total.toFixed(1)
     $scope.broadcast_costs_total = $scope.broadcast_costs_total.toFixed(1)
 
+    chart.load({
+    		columns: [
+    			["data1", $scope.news_costs[0], $scope.news_costs[1], $scope.news_costs[2], $scope.news_costs[3], $scope.news_costs[4], $scope.news_costs[5], $scope.news_costs[6], $scope.news_costs[7]],
+          ["data2", $scope.internet_costs[0], $scope.internet_costs[1], $scope.internet_costs[2], $scope.internet_costs[3], $scope.internet_costs[4], $scope.internet_costs[5], $scope.internet_costs[6], $scope.internet_costs[7]],
+          ["data3", $scope.broadcast_costs[0], $scope.broadcast_costs[1], $scope.broadcast_costs[2], $scope.broadcast_costs[3], $scope.broadcast_costs[4], $scope.broadcast_costs[5], $scope.broadcast_costs[6], $scope.broadcast_costs[7]],
+          ["data4", $scope.news_num[0], $scope.news_num[1], $scope.news_num[2], $scope.news_num[3], $scope.news_num[4], $scope.news_num[5], $scope.news_num[6], $scope.news_num[7]],
+          ["data5", $scope.internet_num[0], $scope.internet_num[1], $scope.internet_num[2], $scope.internet_num[3], $scope.internet_num[4], $scope.internet_num[5], $scope.internet_num[6], $scope.internet_num[7]],
+    			["data6", $scope.broadcast_num[0], $scope.broadcast_num[1], $scope.broadcast_num[2], $scope.broadcast_num[3], $scope.broadcast_num[4], $scope.broadcast_num[5], $scope.broadcast_num[6], $scope.broadcast_num[7]],
+    		],
+    });
+
+    if($scope.filterString.length > 0) {
+      for(var i = 0 ; i < $scope.targetNewsList.length; i++){
+        var flag = false;
+        for(var j = 0 ; j <$scope.filterString.length;j++) {
+          if($scope.targetNewsList[i].mediaName == $scope.filterString[j])  {
+            flag = true;
+            break;
+          }
+        }
+        if(!flag) {
+          $scope.targetNewsList.splice(i,1)
+          $scope.news_page_total --;
+          i--;
+        } 
+      }
+
+      for(var i = 0 ; i < $scope.targetBroadcastList.length; i++){
+        var flag = false;
+        for(var j = 0 ; j <$scope.filterString.length;j++) {
+          if($scope.targetBroadcastList[i].mediaName == $scope.filterString[j])  {
+            flag = true;
+            break;
+          }
+        }
+        if(!flag) {
+          $scope.targetBroadcastList.splice(i,1)
+          $scope.broad_page_total --;
+          i--;
+        } 
+      }
+
+      for(var i = 0 ; i < $scope.targetInternetList.length; i++){
+        var flag = false;
+        for(var j = 0 ; j <$scope.filterString.length;j++) {
+          if($scope.targetInternetList[i].mediaName == $scope.filterString[j])  {
+            flag = true;
+            break;
+          }
+        }
+        if(!flag) {
+          $scope.targetInternetList.splice(i,1)
+          $scope.internet_page_total --;
+          i--;
+        } 
+      }
+    }
+    
+    $scope.targetNewsListShow = []
+    $scope.targetInternetListShow = []
+    $scope.targetBroadcastListShow = []
+
+    $scope.broad_page_total /= 20
+    $scope.news_page_total /= 20
+    $scope.internet_page_total /= 20
+
+    $scope.broad_page_total = Math.ceil($scope.broad_page_total)
+    $scope.news_page_total = Math.ceil($scope.news_page_total)
+    $scope.internet_page_total = Math.ceil($scope.internet_page_total)
+
+    $scope.news_num_start = 0
+    $scope.internet_num_start = 0
+    $scope.broadcast_num_start = 0
+    $scope.news_num_end = ($scope.news_page_total <= 9) ? $scope.news_page_total : 10
+    $scope.internet_num_end = ($scope.internet_page_total <= 9) ? $scope.internet_page_total : 10
+    $scope.broadcast_num_end = ($scope.broad_page_total <= 9) ? $scope.broad_page_total :10
+
+    $scope.NewsTableButtons = []
+    $scope.InternetTableButtons = []
+    $scope.BroadcastTableButtons = []
+
+    for(var i = $scope.news_num_start; i < $scope.news_num_end; i++) {
+      $scope.NewsTableButtons.push(i)
+    }
+
+    for(var i = $scope.internet_num_start; i < $scope.internet_num_end; i++) {
+      $scope.InternetTableButtons.push(i)
+    }
+
+    for(var i = $scope.broadcast_num_start; i < $scope.broadcast_num_end; i++) {
+      $scope.BroadcastTableButtons.push(i)
+    }
 
     $scope.targetBroadcastListShow = []
     $scope.targetInternetListShow = []
@@ -346,18 +404,6 @@ app.controller('MyController',['$scope',($scope)=> {
     for(var i = $scope.broad_page * 20; i < ($scope.broad_page * 20 + 20) && i < $scope.targetBroadcastList.length; i ++) {
       $scope.targetBroadcastListShow.push($scope.targetBroadcastList[i])
     }
-
-    chart.load({
-    		columns: [
-    			["data1", $scope.news_costs[0], $scope.news_costs[1], $scope.news_costs[2], $scope.news_costs[3], $scope.news_costs[4], $scope.news_costs[5], $scope.news_costs[6], $scope.news_costs[7]],
-          ["data2", $scope.internet_costs[0], $scope.internet_costs[1], $scope.internet_costs[2], $scope.internet_costs[3], $scope.internet_costs[4], $scope.internet_costs[5], $scope.internet_costs[6], $scope.internet_costs[7]],
-          ["data3", $scope.broadcast_costs[0], $scope.broadcast_costs[1], $scope.broadcast_costs[2], $scope.broadcast_costs[3], $scope.broadcast_costs[4], $scope.broadcast_costs[5], $scope.broadcast_costs[6], $scope.broadcast_costs[7]],
-          ["data4", $scope.news_num[0], $scope.news_num[1], $scope.news_num[2], $scope.news_num[3], $scope.news_num[4], $scope.news_num[5], $scope.news_num[6], $scope.news_num[7]],
-          ["data5", $scope.internet_num[0], $scope.internet_num[1], $scope.internet_num[2], $scope.internet_num[3], $scope.internet_num[4], $scope.internet_num[5], $scope.internet_num[6], $scope.internet_num[7]],
-    			["data6", $scope.broadcast_num[0], $scope.broadcast_num[1], $scope.broadcast_num[2], $scope.broadcast_num[3], $scope.broadcast_num[4], $scope.broadcast_num[5], $scope.broadcast_num[6], $scope.broadcast_num[7]],
-    		],
-    });
-    $scope.$apply()
   }
 
   $scope.newsTableLeftButton = () => {
@@ -495,5 +541,26 @@ app.controller('MyController',['$scope',($scope)=> {
     for(var i = $scope.broad_page * 20; i < ($scope.broad_page * 20 + 20) && i < $scope.targetBroadcastList.length; i ++) {
       $scope.targetBroadcastListShow.push($scope.targetBroadcastList[i])
     }
+  }
+
+
+  $scope.filtering = () => {
+    $scope.filterString = []
+    var str1 = $scope.filterValue.replace(/ /gi,'')
+    if(str1.length !== 0) {
+      var temp = []
+      var tempArr = str1.split(',')
+      for(var i = 0 ; i < tempArr.length; i++) {
+        if(tempArr[i] !== '') {
+          $scope.filterString.push(tempArr[i])
+        }
+      }
+    }
+    $scope.SelectTarget();
+  }
+
+  $scope.clear = () => {
+    $scope.filterString = []
+    $scope.SelectTarget();
   }
 }])

@@ -33,14 +33,18 @@
     height: calc(100vh - 470px);
 }
 
+.headImgReal {
+    cursor: pointer;
+}
+
 .mainDiv{
     background-color: #d8d8d8;
     padding: 20px;
     padding-top:40px;
     padding-bottom: 40px;
     width: 80vw;
-    max-width: 1040px;
-    min-width: 800px;
+    max-width: 800px;
+    min-width: 530px;
     height: calc(60vh - 240px);
     max-height: 200px;
     position: relative;
@@ -97,12 +101,15 @@
 }
 
 .childsDiv {
-    float: left;
     display: inline-block;
-    width: 58%;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    width: 100%;
     overflow-y: scroll;
     height: calc(60vh - 240px);
-    max-height: 200px;
+    max-height: 160px;
     background-color: #ececec;
 }
 
@@ -167,7 +174,7 @@
       padding: 0 40px;
       line-height: 40px;
       border-radius: 20px;
-      margin-top: -20px;
+      margin-top: -10px;
   }
 
   .searchDiv i {
@@ -203,4 +210,20 @@
       background-color: #003e98;
       color:white;
       border-radius: 10px;
+  }
+
+  .parentList {
+      height: 100%;
+      width: 40%;
+      text-align: center;
+      float: left;
+      background-color: #003e98;
+      color:white;
+  }
+
+  .childList hh {
+      display: inline-block;
+      background-color: #fbc700;
+      font-weight: bold;
+      color:#003e98;
   }

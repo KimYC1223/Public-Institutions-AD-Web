@@ -347,3 +347,63 @@ a:active {color:white;}
 .clickable{
   cursor: pointer;
 }
+
+.filterDiv {
+  width: calc(100% - 40px);
+  background-color: #8E8E8E;
+  height: 60px;
+  border-radius: 5px;
+  line-height: 60px;
+  color:white;
+  padding: 0 20px;
+}
+
+.filterDiv #bigI {
+  width: 40px;
+  font-size: 40px;
+  float: left;
+  margin-top: 10px;
+}
+
+.filterDiv span {
+  margin-left: 20px;
+  display: inline-block;
+  width: 100px;
+}
+
+.filterDiv input{
+  width: calc(100% - 310px);
+  border-radius: 10px;
+  border:none;
+  outline: none;
+  height: 40px;
+  padding: 0 20px;
+}
+
+.FB , .FB2{
+  width: 40px;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #003e98;
+  color:white;
+  text-align: center;
+  height: 40px;
+  float:right;
+}
+
+.FB2 {
+  background-color: rgb(168, 30, 30);
+}
+
+.FB:hover{
+  background-color: hsl(216, 100%, 21%);
+}
+
+.FB2:hover {
+  background-color: rgb(107, 16, 16);
+}

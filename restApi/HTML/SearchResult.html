@@ -14,25 +14,28 @@
 <body bgcolor="#003e98" ng-app="myApp" ng-controller="MyController">
 
   <div class="headerImg">
-    <div class="headImgReal"></div>
+    <div class="headImgReal" id="headImgReal"></div>
   </div>
 
   <div class="mainDivParents">
     <div class="mainDiv">
       <div class="searchDiv">
-        <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" placeholder="찾고자 하는 부처를 입력하세요">
+        <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" ng-model="searchName" ng-change="ValueChange()" placeholder="찾고자 하는 부처를 입력하세요">
         <div class="searchButton" id="seachButton">검색</div>
       </div>
     
       <div class="childsDiv">
-        <div ng-repeat="ch in childs" ng-click="selectChild(ch)" class="childDivSub">{{ch}}</div>
-        <div ng-show="childs.length==0" class="childNoDiv">상위 기관을 선택하세요</div>
+        <div ng-repeat="result in childs" ng-click="selectChild($index)" class="childDivSub">
+          <div class="parentList">{{result.parent}}</div>
+          <div class="childList" ng-bind-html="result.child"></div>
+        </div>
+        <div ng-show="childs.length==0" class="childNoDiv">검색 결과가 없습니다</div>
       </div>
     </div>
   </div>
 
   <div class="footer">
-    <div class="footerInner2">Last update : 2021.06.15</div>
+    <div class="footerInner2">Last update : 2021.09.30</div>
     <div class="footerInner"><a href="https://blog.naver.com/kek9580"><i class="fas fa-home"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://twitter.com/kyummy63"><i class="fab fa-twitter"></i></a> &nbsp;&nbsp;&nbsp;
                              <a href="https://www.youtube.com/channel/UCLwDpdPbcsq0R2398JO_oWQ"><i class="fab fa-youtube"></i></a> &nbsp;&nbsp;&nbsp;
@@ -42,7 +45,7 @@
   </div>
 
   <script src="../JS/Index.js"></script>
-  <script src="../JS/IndexAngular.js"></script>
+  <script src="../JS/SearchResult.js"></script>
   <script src="../JS/PlatformCheck.js"></script>
 </body>
 </html>
