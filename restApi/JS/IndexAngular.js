@@ -59,5 +59,9 @@ app.controller('MyController',['$scope',($scope)=> {
   $scope.greeting = () => {
     $scope.childs = []
     $scope.isGreeting = true;
+    for(var i = 0 ; i < $scope.parents.length ; i++) {
+      if(parentElements[i].classList.contains('clicked'))
+        parentElements[i].classList.remove('clicked')
+    }
   }
 }])
