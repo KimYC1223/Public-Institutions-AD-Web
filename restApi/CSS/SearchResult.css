@@ -227,3 +227,16 @@
       font-weight: bold;
       color:#003e98;
   }
+
+  @media screen and (max-height :800px){
+    /* .searchDiv {
+        display: none;
+    } */
+
+    .footer {
+        display: none;
+    }
+    .mainDiv {
+      top:25vh;
+    }
+}
