@@ -47,17 +47,21 @@
           <br>
           감사합니다.<br>
           <b>김의겸 올림</b><br>
+        </div>
       </div>
+
+      <div class="searchDiv">
+        <form action="/SearchResult" accept-charset="utf-8" method="GET">
+          <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" name="value" placeholder="찾고자 하는 부처를 입력하세요" ng-model="searchName">
+          <input class="searchButton" id="seachButton" type="submit" value = "검색">
+        </form>
       </div>
     </div>
+
+    
   </div>
   
-  <div class="searchDiv">
-    <form action="/SearchResult" accept-charset="utf-8" method="GET">
-      <i class="fas fa-search-plus"></i><input type="text" class="searchBox" id="searchBox" name="value" placeholder="찾고자 하는 부처를 입력하세요" ng-model="searchName">
-      <input class="searchButton" id="seachButton" type="submit" value = "검색">
-    </form>
-  </div>
+  
 
   <div class="footer">
     <div class="footerInner2">Last update : 2021.09.30</div>

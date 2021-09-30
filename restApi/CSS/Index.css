@@ -29,6 +29,7 @@
 }
 
 .mainDivParents {
+    z-index: 2;
     width: 100%;
     height: calc(100vh - 470px);
 }
@@ -41,8 +42,8 @@
     width: 80vw;
     max-width: 1040px;
     min-width: 800px;
-    height: calc(60vh - 240px);
-    max-height: 200px;
+    height: calc(60vh - 190px);
+    max-height: 250px;
     position: relative;
     transform: translate(-50%,-50%);
     left:50%;
@@ -195,7 +196,7 @@
     left:50%;
     color: #003e98;
   }
-
+    /*------------------------------------------------------------------*/
   .searchDiv{
       z-index: 1;
       transform: translateX(-50%);
@@ -203,11 +204,11 @@
       width: 520px;
       height: 40px;
       background-color:#c9c9c9;
-      position: absolute;
-      bottom:150px;
+      position:fixed;
       padding: 0 40px;
       line-height: 40px;
       border-radius: 20px;
+      bottom:25px;
   }
 
   .searchDiv i {
@@ -249,15 +250,14 @@
   }
 
   @media screen and (max-height :800px){
-      .searchDiv {
+      /* .searchDiv {
           display: none;
-      }
+      } */
 
       .footer {
           display: none;
       }
-
       .mainDiv {
-        top:70%;
+        top:25vh;
       }
   }
