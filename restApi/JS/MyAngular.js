@@ -85,6 +85,10 @@ app.controller('MyController',['$scope',($scope)=> {
         $scope.parentsName = $scope.groupData[i].parent
         break;
       }
+      let headImg = document.getElementById('headImg')
+      headImg.addEventListener('click', () => {
+        location.href = `/?parent=${$scope.parentsName}`;
+      })
     }
     $scope.$apply()
   })
@@ -574,5 +578,14 @@ app.controller('MyController',['$scope',($scope)=> {
     $scope.filterString = []
     $scope.filterValue = ''
     $scope.SelectTarget();
+  }
+
+  if (window.history && history.pushState) {
+    addEventListener('load', function() {
+      history.pushState(null, null, null);
+      addEventListener('popstate', function() {
+        location.href = `/?parent=${$scope.parentsName}`;
+      });    
+    });
   }
 }])
