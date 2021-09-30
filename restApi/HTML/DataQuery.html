@@ -134,11 +134,14 @@
 
     <div class="notice">광고료 단위 : 백만원 (부가세 포함)</div>
 
-    <div class="filterDiv"><i class="fas fa-filter" id="bigI"></i><span>매체 필터링</span>
+    <div class="filterDiv"><i class="fas fa-search" id="bigI"></i><span>매체별 검색</span>
       <input type="text" ng-model="filterValue" 
-      placeholder="원하는 매체 명을 콤마(,)로 구분해 입력해주세요">
+      placeholder="원하는 매체 명을 콤마(,)로 구분해 입력해주세요" onKeypress="javascript:if(event.keyCode==13){Javafiltering();}">
       <div class="FB2" ng-click="clear()"><i class="fas fa-undo"></i></div>
-      <div class="FB" ng-click="filtering()"><i class="fas fa-filter"></i></div>
+      <div class="FB" ng-click="filtering()"><i class="fas fa-search"></i></div>
+    </div>
+    <div class="Tip"><span class="TipHead">TIP!</span>
+      <span>조선일보, 유튜브, 네이버 등으로 검색하시면 해당 부처의 각 매체별 상세 광고 내용이 소개됩니다.</span>
     </div>
 
     <div class="tableTitle Newspaper_tableTitle" id="Newspaper_tableTitle"><i class="fas fa-file"></i> 신문매체 세부 집행 내역 (2014~2021.03)</div>

@@ -1,5 +1,6 @@
 let app = angular.module('myApp',[]);
 let file = document.getElementById('jsonFile')
+var Javafiltering 
 
 function getParameter(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -546,17 +547,27 @@ app.controller('MyController',['$scope',($scope)=> {
 
   $scope.filtering = () => {
     $scope.filterString = []
-    var str1 = $scope.filterValue.replace(/ /gi,'')
-    if(str1.length !== 0) {
-      var temp = []
-      var tempArr = str1.split(',')
-      for(var i = 0 ; i < tempArr.length; i++) {
-        if(tempArr[i] !== '') {
-          $scope.filterString.push(tempArr[i])
+
+    if($scope.filterValue !== '') {
+      var str1 = $scope.filterValue.replace(/ /gi,'')
+      if(str1.length !== 0) {
+        var temp = []
+        
+        var tempArr = str1.split(',')
+        for(var i = 0 ; i < tempArr.length; i++) {
+          if(tempArr[i] !== '') {
+            $scope.filterString.push(tempArr[i])
+          }
         }
       }
     }
     $scope.SelectTarget();
+    
+  }
+
+  Javafiltering = () => {
+    $scope.filtering();
+    $scope.$apply();
   }
 
   $scope.clear = () => {

@@ -1,5 +1,6 @@
 let app = angular.module('myApp',[]);
 let file = document.getElementById('jsonFile')
+var parentElements = document.getElementsByClassName(`parentDivSub`);
 
 function getParameter(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -11,8 +12,10 @@ function getParameter(name) {
 app.controller('MyController',['$scope',($scope)=> {
   $scope.groupData
   $scope.parents = []
+  $isGreeting = false;
   $scope.childs = []
   $scope.searchName = getParameter("value")
+  
   readGroupDataFile(`/read_group_info`, (str) => {
     $scope.groupData = JSON.parse(str)
     $scope.$apply()
@@ -32,14 +35,29 @@ app.controller('MyController',['$scope',($scope)=> {
 
   $scope.selectParents = (p) => {
     $scope.childs = []
-    for(var i = 0 ; i <$scope.groupData.length; i++) {
-      if($scope.groupData[i].parent == p) {
-        $scope.childs.push($scope.groupData[i].child)
+    $isGreeting = false;
+    for(var i = 0 ; i < $scope.parents.length ; i++) {
+      if($scope.parents[i] === p) {
+        if(!parentElements[i].classList.contains('clicked'))
+          parentElements[i].classList.add('clicked')
+      } else {
+        if(parentElements[i].classList.contains('clicked'))
+          parentElements[i].classList.remove('clicked')
       }
+    }
+
+    for(var i = 0 ; i <$scope.groupData.length; i++) {
+      if($scope.groupData[i].parent == p)
+        $scope.childs.push($scope.groupData[i].child)
     }
   }
 
   $scope.selectChild = (c) => {
     location.href=`/dataPage?name=${c}`
+  }
+
+  $scope.greeting = () => {
+    $scope.childs = []
+    $scope.isGreeting = true;
   }
 }])

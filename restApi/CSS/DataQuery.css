@@ -407,3 +407,29 @@ a:active {color:white;}
 .FB2:hover {
   background-color: rgb(107, 16, 16);
 }
+
+.Tip {
+  margin-top: 10px;
+  background-color: #ffed84;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-bottom: 50px;
+}
+
+.Tip span {
+  font-weight: bold;
+  color :#212121;
+}
+
+.Tip .TipHead {
+  background-color: #ff9100;
+  color:#fff1f1;
+  width: 80px;
+  float:left;
+  height: 100%;
+  text-align: center;
+  margin-right: 20px;
+}

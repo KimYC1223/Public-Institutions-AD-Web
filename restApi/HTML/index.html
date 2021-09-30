@@ -26,12 +26,28 @@
         </div>
       </div>
       <div class="parentsDiv">
+        <div ng-click="greeting()" class="parentDivSub2">김의겸입니다</div>
         <div ng-repeat="pa in parents" ng-click="selectParents(pa)" class="parentDivSub">{{pa}}</div>
       </div>
 
       <div class="childsDiv">
         <div ng-repeat="ch in childs" ng-click="selectChild(ch)" class="childDivSub">{{ch}}</div>
-        <div ng-show="childs.length==0" class="childNoDiv">상위 기관을 선택하세요</div>
+        <div ng-show="childs.length==0 && !isGreeting" class="childNoDiv">상위 기관을 선택하세요</div>
+        <div ng-show="childs.length==0 &&  isGreeting" class="childNoDiv2">
+          <span class="greetingHead">인 사 말</span><br><br>
+          <br>
+          안녕하세요 김의겸입니다.<br>
+          이곳에 인사말을 적으세요<br>
+          <br>
+          동해물과 백두산이 마르고 닳도록<br>
+          하느님이 보우하사 우리나라만세<br>
+          <br>
+          무궁화 삼천리 화려강산<br>
+          대한사람 대한으로 길이 보전하세<br>
+          <br>
+          감사합니다.<br>
+          <b>김의겸 올림</b><br>
+      </div>
       </div>
     </div>
   </div>
