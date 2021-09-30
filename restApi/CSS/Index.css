@@ -99,13 +99,12 @@
 }
 
 .childNoDiv2 {
-    padding-top: 100px;
-    width: 100%;
-    text-align: center;
-    transform: translate(-50%,-50%);
+    transform: translateX(-50%);
     left:50%;
+    top:20px;
+    padding-bottom: 25px;
     color:rgb(27, 27, 27);
-    margin-bottom: -60px;
+    line-height: 25px;
 }
 
 
@@ -142,6 +141,27 @@
 .greetingHead {
     font-weight: bold;
     font-size: 22px;
+    line-height: 40px;
+}
+
+.greetingHead2 {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 40px;
+    height: 40px;
+    width: 510px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    background-color: #fbc700;
+    display: inline-block;
+    color: #002152;
+}
+
+.greetingHead3 {
+    font-weight: bold;
+    font-size: 13.5px;
+    line-height: 20px;
+    color: #424242;
 }
 
 .parentDivSub:last-child {
