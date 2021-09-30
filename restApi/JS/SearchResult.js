@@ -6,7 +6,6 @@ document.getElementById('headImgReal').addEventListener('click',()=>{
     } else {
         location.href = `/?value=${getParameter("value")}`
     }
-    
 })
 
 function getParameter(name) {

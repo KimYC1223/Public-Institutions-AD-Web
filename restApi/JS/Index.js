@@ -1,3 +1,12 @@
+document.getElementById('headImgReal').addEventListener('click',()=>{
+  if(getParameter("value") == "") {
+      location.href = `/`
+  } else {
+      location.href = `/?value=${getParameter("value")}`
+  }
+})
+
+
 function readGroupDataFile(file, callback) {
     var urlString = file;
     jQuery.ajax({
